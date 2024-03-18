@@ -70,16 +70,11 @@ fi
 
 build-step "Updating TeX Live..."
 
-tlmgr update --self
-tlmgr option repository "$TEXLIVE_REPOSITORY"
-# if [ "$UPDATE_RESULT" != "0" ]; then
-#     echo "$UPDATE_RESULT"
-#     build-warn "TeX Live update failed, trying upgrade script"
-#     export PATH=./.texlive/bin/x86_64-linux:$PATH
-#     curl -O https://ctan.mirrors.hoobly.com/systems/texlive/tlnet/update-tlmgr-latest.sh
-#     chmod +x update-tlmgr-latest.sh
-#     ./update-tlmgr-latest.sh --update
-# fi
+# tlmgr update --self
+# tlmgr option repository "$TEXLIVE_REPOSITORY"
+curl -O https://ctan.mirrors.hoobly.com/systems/texlive/tlnet/update-tlmgr-latest.sh
+chmod +x update-tlmgr-latest.sh
+echo $(./update-tlmgr-latest.sh --update)
 
 
 # install user-provided-packages
