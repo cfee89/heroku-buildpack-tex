@@ -70,11 +70,11 @@ fi
 
 build-step "Updating TeX Live..."
 
-# tlmgr update --self
-# tlmgr option repository "$TEXLIVE_REPOSITORY"
-curl -O https://ctan.mirrors.hoobly.com/systems/texlive/tlnet/update-tlmgr-latest.sh
-chmod +x update-tlmgr-latest.sh
-echo $(./update-tlmgr-latest.sh --update)
+tlmgr update --self
+tlmgr option repository "$TEXLIVE_REPOSITORY"
+# curl -O https://ctan.mirrors.hoobly.com/systems/texlive/tlnet/update-tlmgr-latest.sh
+# chmod +x update-tlmgr-latest.sh
+# echo $(./update-tlmgr-latest.sh --update)
 
 
 # install user-provided-packages
